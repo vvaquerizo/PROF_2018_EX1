@@ -11,12 +11,22 @@ public class MyString {
 		return this.string;
 	}
 	
-	public int compareTo(MyString string1, MyString string2) {
-		int diff = string1.getString().length() - string2.getString().length();
-		if (string1.getString().length() != string2.getString().length()) {
-			return diff;
-		} else {
-			return 0;
+	public int compareTo(MyString anotherString) {
+		// Nodo 1
+		for (int k = 0; k < Math.min(this.string.length(), anotherString.getString().length()); k++) {
+			// Nodo 2
+			int diff = this.string.charAt(k) - anotherString.getString().charAt(k);
+			if (diff != 0) {
+				//Nodo 3
+				return diff;
+			}
 		}
+		// Nodo 4
+		if (this.string.length() != anotherString.getString().length()) {
+			// Nodo 5
+			return this.string.length() - anotherString.getString().length();
+		}
+		// Nodo 6
+		return 0;
 	}
 }
